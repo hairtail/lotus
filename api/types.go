@@ -328,3 +328,8 @@ type ForkUpgradeParams struct {
 	UpgradeChocolateHeight     abi.ChainEpoch
 	UpgradeOhSnapHeight        abi.ChainEpoch
 }
+
+type ChainExportConfig struct {
+	IncludeMessages bool
+	IncludeReceipts bool
+}
