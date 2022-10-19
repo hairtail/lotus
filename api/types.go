@@ -332,6 +332,7 @@ type ForkUpgradeParams struct {
 type ChainExportConfig struct {
 	WriteBufferSize   int
 	Workers           int64
+	CacheSize         int
 	IncludeMessages   bool
 	IncludeReceipts   bool
 	IncludeStateRoots bool

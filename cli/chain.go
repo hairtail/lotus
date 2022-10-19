@@ -1161,6 +1161,11 @@ var ChainExportRangeCmd = &cli.Command{
 			Value: 1,
 		},
 		&cli.IntFlag{
+			Name:  "cache-size",
+			Usage: "specify the size of the cache (in objects) to use while exporting",
+			Value: 10_000,
+		},
+		&cli.IntFlag{
 			Name:  "write-buffer",
 			Usage: "specify write buffer size",
 			Value: 1 << 20,
@@ -1212,6 +1217,7 @@ var ChainExportRangeCmd = &cli.Command{
 			if err := api.ChainExportRangeInternal(ctx, head.Key(), tail.Key(), &lapi.ChainExportConfig{
 				WriteBufferSize:   cctx.Int("write-buffer"),
 				Workers:           cctx.Int64("workers"),
+				CacheSize:         cctx.Int("cache-size"),
 				IncludeMessages:   cctx.Bool("messages"),
 				IncludeReceipts:   cctx.Bool("receipts"),
 				IncludeStateRoots: cctx.Bool("stateroots"),
@@ -1224,6 +1230,7 @@ var ChainExportRangeCmd = &cli.Command{
 		stream, err := api.ChainExportRange(ctx, head.Key(), tail.Key(), &lapi.ChainExportConfig{
 			WriteBufferSize:   cctx.Int("write-buffer"),
 			Workers:           cctx.Int64("workers"),
+			CacheSize:         cctx.Int("cache-size"),
 			IncludeMessages:   cctx.Bool("messages"),
 			IncludeReceipts:   cctx.Bool("receipts"),
 			IncludeStateRoots: cctx.Bool("stateroots"),
