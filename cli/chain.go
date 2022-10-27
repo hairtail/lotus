@@ -1163,7 +1163,7 @@ var ChainExportRangeCmd = &cli.Command{
 		&cli.IntFlag{
 			Name:  "cache-size",
 			Usage: "specify the size of the cache (in objects) to use while exporting",
-			Value: 10_000,
+			Value: 100_000,
 		},
 		&cli.IntFlag{
 			Name:  "write-buffer",
