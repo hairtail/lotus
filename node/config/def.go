@@ -140,7 +140,8 @@ func DefaultStorageMiner() *StorageMiner {
 		},
 
 		Proving: ProvingConfig{
-			ParallelCheckLimit: 128,
+			ParallelCheckLimit:  128,
+			MaxBatchParallelism: 1,
 		},
 
 		Storage: SealerConfig{
